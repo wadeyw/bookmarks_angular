@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  
+  <mat-form-field>
+    <input matInput placeholder="Please input url" value="url">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Please input note" value="">
+  </mat-form-field>
+  <button mat-button>Add</button>
+
+
+  <mat-table #table [dataSource]="bookmark">
+    <ng-container matColumnDef="url">
+      <mat-header-cell *matHeaderCellDef>URL</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.url}}</mat-cell>
+    </ng-container>
+  </mat-table>
+
+</div>

@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
+import { AppService } from './app.service';
+import { HttpClientModule } from '@angular/common/http';
 // import { TestDetailsComponent } from './test-details/test-details.component';
 
 
@@ -17,6 +19,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -25,7 +28,7 @@ import { AppComponent } from './app.component';
     MatTableModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

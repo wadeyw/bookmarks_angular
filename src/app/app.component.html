@@ -10,11 +10,36 @@
   <button mat-button>Add</button>
 
 
-  <mat-table #table [dataSource]="bookmark">
+  <mat-table #table [dataSource]="book">
+      <ng-container matColumnDef="open">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-button color="primary">open</button>
+          </mat-cell>
+        </ng-container>
     <ng-container matColumnDef="url">
       <mat-header-cell *matHeaderCellDef>URL</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.url}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef>Create Date</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.created}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="note">
+      <mat-header-cell *matHeaderCellDef>Note</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.note}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="command">
+      <mat-header-cell *matHeaderCellDef>Command</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button>Update</button>
+        <button mat-button>Delete</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
 </div>
